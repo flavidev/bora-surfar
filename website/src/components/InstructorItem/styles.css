@@ -1,0 +1,102 @@
+.instructor-item {
+  background: var(--color-box-base);
+  border: 1px solid var(--color-line-in-white);
+  border-radius: 0.75rem;
+  margin-top: 2.5rem;
+  overflow: hidden;
+}
+
+.instructor-item header {
+  padding: 3.25rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.instructor-item header img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 0.75rem;
+}
+
+.instructor-item header div {
+  margin-left: 2.75rem;
+}
+
+.instructor-item header div strong {
+  font: 700 2.5rem Alegreya;
+  display: block;
+  color: var(--color-text-title);
+}
+
+.instructor-item header div span {
+  font-size: 2rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.instructor-item > p {
+  font-size: 1.75rem;
+  padding-left: 2.5rem;
+  padding-right: 2rem;
+  line-height: 3rem;
+  margin-bottom: 3rem;
+}
+
+.instructor-item > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+  background-color: var(--color-box-footer);
+  border-top: 0.75px solid var(--color-line-in-white);
+  margin-top: 3.25 rem;
+}
+.instructor-item footer p strong {
+  color: var(--color-secondary);
+  font-size: 1.75rem;
+  display: block;
+}
+
+.instructor-item footer button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 17.5rem;
+  height: 5.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+  border: 0;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font: 400 1.75rem Alegreya;
+  transition: 0.25s;
+}
+
+.instructor-item footer button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+@media (min-width: 700px) {
+  .instructor-item header,
+  .instructor-item footer {
+    padding: 3.25rem;
+  }
+
+  .instructor-item > p {
+    padding: 0 3.25rem;
+  }
+
+  .instructor-item footer p strong {
+    display: initial;
+    margin-left: 1.75rem;
+  }
+  .instructor-item footer button {
+    width: 25rem;
+    font-size: 1.75rem;
+    justify-content: center;
+  }
+
+  .instructor-item footer button img {
+    margin-right: 1rem;
+  }
+}

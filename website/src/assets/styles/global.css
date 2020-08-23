@@ -1,0 +1,65 @@
+/* Mobile first concept including responsive layout */
+
+:root {
+  font-size: 60%;
+
+  --color-background: #f3faff;
+  --color-primary-lighter: #5bd9e9;
+  --color-primary-light: #88d2dc;
+  --color-primary: #00bcd4;
+  --color-primary-dark: #1d96a5;
+  --color-primary-darker: #185961;
+  --color-secondary: #dd2c00;
+  --color-secondary-dark: #911d00;
+  --color-title-in-primary: #ffffff;
+  --color-text-in-primary: #cee6e9;
+  --color-text-title: #022c32;
+  --color-text-complement: #35919d;
+  --color-text-base: #425f63;
+  --color-line-in-white: #d7e9eb;
+  --color-input-background: #e7f4f5;
+  --color-button-text: #ffffff;
+  --color-box-base: #ffffff;
+  --color-box-footer: #f9f9f9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+body {
+  background: var(--color-background);
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem Lato;
+  color: var(--color-text-base)
+}
+
+.container {
+  width: 90vw;
+  max-width: 700px;
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
