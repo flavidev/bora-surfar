@@ -101,7 +101,7 @@
     .logo-container {
       grid-area: logo;
       align-self: center;
-      margin: 0;
+      margin: 0 4.25rem 0 0;
     }
   
     .logo-container h2 {
@@ -129,6 +129,7 @@
     .total-connections {
       grid-area: total;
       justify-self: end;
+      margin-top: 8.5rem;
     }
   
     .total-connections img {
