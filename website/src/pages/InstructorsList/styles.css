@@ -35,17 +35,6 @@
     font: 1.75rem Alegreya;
   }
   
-  #search-instructors .input-block:focus-within::after {
-    width: calc(100% - 3.2rem);
-    height: 2px;
-    content: "";
-    background-color: var(--color-primary-light);
-    position: absolute;
-    left: 1.6rem;
-    right: 1.6rem;
-    bottom: 0;
-  }
-  
   #page-instructors-list main {
     margin: 3.2rem auto;
     width: 90%;

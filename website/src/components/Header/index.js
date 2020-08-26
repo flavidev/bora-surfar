@@ -18,7 +18,8 @@ const Header = (props) => {
       </div>
 
       <div className="header-content">
-        <strong>{props.text}</strong>
+        <strong>{props.title}</strong>
+        {props.description && <p>{props.description}</p>}
         {props.children}
       </div>
     </header>
