@@ -15,7 +15,7 @@ function InstructorItem() {
         <div>
           <strong>Alexandre Oliva</strong>
 
-          <span>Copacabana</span>
+          <span>Zona Sul</span>
         </div>
       </header>
       <p>
@@ -28,11 +28,11 @@ function InstructorItem() {
       <footer>
         <p>
           Preço/hora
-          <strong>R$170,00</strong>
+          <strong>R$100,00</strong>
         </p>
         <button type="button">
           <img src={whatsAppIcon} alt="WhatsApp" />
-          Meu WhatsApp
+          WhatsApp
         </button>
       </footer>
     </article>
