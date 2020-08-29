@@ -14,21 +14,16 @@ function InstructorForm() {
   const [whatsApp, setWhatsApp] = useState("");
   const [bio, setBio] = useState("");
   const [beaches, setBeaches] = useState("");
-  const [weekday, setWeekDay] = useState("");
-  const [timeFrom, setTimeFrom] = useState("");
-  const [timeUntil, setTimeUntil] = useState("");
+  const [weekDay, setWeekDay] = useState("");
+  const [weekDayShift, setWeekDayShift] = useState("");
   const [price, setPrice] = useState("");
   let [availableSchedule, setAvailableSchedule] = useState([]);
 
   function addNewSchedule() {
-    if ((weekday, timeFrom, timeUntil)) {
+    if (weekDay && weekDayShift) {
       setAvailableSchedule([
         ...availableSchedule,
-        {
-          day: weekday,
-          from: timeFrom,
-          until: timeUntil,
-        },
+        { day: weekDay, shift: weekDayShift },
       ]);
       resetSchedule();
     }
@@ -40,8 +35,7 @@ function InstructorForm() {
 
   function resetSchedule() {
     setWeekDay("");
-    setTimeFrom("");
-    setTimeUntil("");
+    setWeekDayShift("");
   }
 
   return (
@@ -123,17 +117,14 @@ function InstructorForm() {
                 { value: "Domingo", label: "Domingo" },
               ]}
             />
-            <Input
-              name="from"
-              label="De"
-              type="time"
-              onChange={(e) => setTimeFrom(e.target.value)}
-            />
-            <Input
-              name="to"
-              label="Até"
-              type="time"
-              onChange={(e) => setTimeUntil(e.target.value)}
+            <Selection
+              name="week_day_shift"
+              label="Turno"
+              onChange={(e) => setWeekDayShift(e.target.value)}
+              options={[
+                { value: "Manhã", label: "Manhã" },
+                { value: "Tarde", label: "Tarde" },
+              ]}
             />
           </div>
           <div className="schedule-buttons">
@@ -147,14 +138,8 @@ function InstructorForm() {
         </fieldset>
 
         <fieldset>
-          {availableSchedule.length>0 && <legend></legend>}
           {availableSchedule.map((item, i) => (
-            <LessonTime
-              key={i}
-              day={item.day}
-              from={item.from}
-              until={item.until}
-            />
+            <LessonTime key={i} day={item.day} shift={item.shift} />
           ))}
         </fieldset>
 
@@ -169,11 +154,10 @@ function InstructorForm() {
                 whatsApp = ${whatsApp}\n
                 bio = ${bio}\n
                 beaches = ${beaches}\n
-                weekday = ${weekday}\n
-                timeFrom = ${timeFrom}\n
-                timeUntil = ${timeUntil}\n
+                weekday = ${weekDay}\n
+                week day shift = ${weekDayShift}\n
                 price = ${price}\n
-                availableSchedule = ${availableSchedule}\n`
+                availableSchedule = ${availableSchedule.length}\n`
               );
             }}
           >
