@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+
 import Header from "../../components/Header";
 import Input from "../../components/Input";
 import Selection from "../../components/Selection/";
 import TextArea from "../../components/TextArea/";
+import LessonTime from "../../components/LessonTime";
 
 import "./styles.css";
 
@@ -14,8 +16,26 @@ function InstructorForm() {
   const [beaches, setBeaches] = useState("");
   const [weekday, setWeekDay] = useState("");
   const [timeFrom, setTimeFrom] = useState("");
+  const [timeUntil, setTimeUntil] = useState("");
   const [price, setPrice] = useState("");
   let [availableSchedule, setAvailableSchedule] = useState([]);
+
+  let foo = ["quarta", "05:00", "06:00"]
+
+  function addNewSchedule() {
+    if ((weekday, timeFrom, timeUntil)) {
+      setAvailableSchedule([
+        ...availableSchedule,
+        {
+          day: weekday,
+          from: timeFrom,
+          until: timeUntil,
+        },
+      ]);
+    } else {
+      alert("Preencha todos os campos");
+    }
+  }
 
   return (
     <div className="container" id="page-instructor-form">
@@ -52,7 +72,6 @@ function InstructorForm() {
             name="bio"
             onChange={(e) => setBio(e.target.value)}
             label="Conta um pouco da tua história no esporte"
-            
           />
         </fieldset>
 
@@ -86,6 +105,7 @@ function InstructorForm() {
             <Selection
               name="week_day"
               label="Dia da Semana"
+              onChange={(e) => setWeekDay(e.target.value)}
               options={[
                 { value: "segunda", label: "Segunda-feira" },
                 { value: "terça", label: "Terça-feira" },
@@ -96,17 +116,26 @@ function InstructorForm() {
                 { value: "domingo", label: "Domingo" },
               ]}
             />
-            <Input name="from" label="De" type="time" />
-            <Input name="to" label="Até" type="time" />
+            <Input
+              name="from"
+              label="De"
+              type="time"
+              onChange={(e) => setTimeFrom(e.target.value)}
+            />
+            <Input
+              name="to"
+              label="Até"
+              type="time"
+              onChange={(e) => setTimeUntil(e.target.value)}
+            />
           </div>
-            <button
-              type="button"
-              onClick={() => {
-                alert("foo");
-              }}
-            >
-              Adicionar horários
-            </button>
+          <button type="button" onClick={addNewSchedule}>
+            Adicionar horário
+          </button>
+        </fieldset>
+
+        <fieldset>
+          <LessonTime day={foo} />
         </fieldset>
 
         <footer>
@@ -114,7 +143,18 @@ function InstructorForm() {
           <button
             type="button"
             onClick={() => {
-              alert(`test`);
+              alert(
+                `username = ${username}\n
+                profilePicture = ${profilePicture}\n
+                whatsApp = ${whatsApp}\n
+                bio = ${bio}\n
+                beaches = ${beaches}\n
+                weekday = ${weekday}\n
+                timeFrom = ${timeFrom}\n
+                timeUntil = ${timeUntil}\n
+                price = ${price}\n
+                availableSchedule = ${availableSchedule}\n`
+              );
             }}
           >
             Cadastrar

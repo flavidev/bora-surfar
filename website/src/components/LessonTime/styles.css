@@ -1,0 +1,19 @@
+.lesson-block {
+  font-size: 1.5rem;
+}
+
+.lesson-item {
+  display: flex;
+  width: 100%;
+  padding: 1.5rem 0;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-line-in-white);
+  background-color: var(--color-input-background);
+  color: var(--color-primary-dark);
+}
+
+.lesson-item span {
+  flex: 1;
+  font: 1.75rem Alegreya;
+  color: var(--color-primary-dark);
+}
