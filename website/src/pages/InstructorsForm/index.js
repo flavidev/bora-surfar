@@ -20,8 +20,6 @@ function InstructorForm() {
   const [price, setPrice] = useState("");
   let [availableSchedule, setAvailableSchedule] = useState([]);
 
-  let foo = ["quarta", "05:00", "06:00"]
-
   function addNewSchedule() {
     if ((weekday, timeFrom, timeUntil)) {
       setAvailableSchedule([
@@ -32,9 +30,18 @@ function InstructorForm() {
           until: timeUntil,
         },
       ]);
-    } else {
-      alert("Preencha todos os campos");
+      resetSchedule();
     }
+  }
+
+  function deleteLastSchedule() {
+    setAvailableSchedule(availableSchedule.slice(0, -1));
+  }
+
+  function resetSchedule() {
+    setWeekDay("");
+    setTimeFrom("");
+    setTimeUntil("");
   }
 
   return (
@@ -107,13 +114,13 @@ function InstructorForm() {
               label="Dia da Semana"
               onChange={(e) => setWeekDay(e.target.value)}
               options={[
-                { value: "segunda", label: "Segunda-feira" },
-                { value: "terça", label: "Terça-feira" },
-                { value: "quarta", label: "Quarta-feira" },
-                { value: "quinta", label: "Quinta-feira" },
-                { value: "sexta", label: "Sexta-feira" },
-                { value: "sabado", label: "Sábado" },
-                { value: "domingo", label: "Domingo" },
+                { value: "Segunda", label: "Segunda-feira" },
+                { value: "Terça", label: "Terça-feira" },
+                { value: "Quarta", label: "Quarta-feira" },
+                { value: "Quinta", label: "Quinta-feira" },
+                { value: "Sexta", label: "Sexta-feira" },
+                { value: "Sábado", label: "Sábado" },
+                { value: "Domingo", label: "Domingo" },
               ]}
             />
             <Input
@@ -129,13 +136,26 @@ function InstructorForm() {
               onChange={(e) => setTimeUntil(e.target.value)}
             />
           </div>
-          <button type="button" onClick={addNewSchedule}>
-            Adicionar horário
-          </button>
+          <div className="schedule-buttons">
+            <button type="button" onClick={deleteLastSchedule}>
+              Apagar horário
+            </button>
+            <button type="button" onClick={addNewSchedule}>
+              Adicionar horário
+            </button>
+          </div>
         </fieldset>
 
         <fieldset>
-          <LessonTime day={foo} />
+          {availableSchedule.length>0 && <legend></legend>}
+          {availableSchedule.map((item, i) => (
+            <LessonTime
+              key={i}
+              day={item.day}
+              from={item.from}
+              until={item.until}
+            />
+          ))}
         </fieldset>
 
         <footer>

@@ -1,5 +1,7 @@
 .lesson-block {
+  height: 100%;
   font-size: 1.5rem;
+  padding-top: 1.25rem;
 }
 
 .lesson-item {
@@ -14,6 +16,8 @@
 
 .lesson-item span {
   flex: 1;
+  justify-content: space-between;
   font: 1.75rem Alegreya;
   color: var(--color-primary-dark);
+  padding: 0 5rem;
 }

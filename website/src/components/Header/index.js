@@ -20,7 +20,6 @@ const Header = (props) => {
       <div className="header-content">
         <strong>{props.title}</strong>
         {props.description && <p>{props.description}</p>}
-        {props.children}
       </div>
     </header>
   );
