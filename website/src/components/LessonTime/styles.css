@@ -1,23 +1,25 @@
 .lesson-block {
   height: 100%;
   font-size: 1.5rem;
-  padding-top: 1.25rem;
 }
 
 .lesson-item {
   display: flex;
-  width: 100%;
-  padding: 1.5rem 0;
+  width: 50%;
+  padding: 1rem 0;
   border-radius: 0.75rem;
   border: 1px solid var(--color-line-in-white);
-  background-color: var(--color-input-background);
-  color: var(--color-primary-dark);
-}
-
-.lesson-item span {
-  flex: 1;
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-in-primary);
   justify-content: space-between;
   font: 1.75rem Alegreya;
-  color: var(--color-primary-dark);
-  padding: 0 5rem;
+}
+
+.lesson-item :first-child {
+  flex: 0.5;
+  margin-left:20%;
+}
+
+.lesson-item span + span {
+  flex: 0.5;
 }

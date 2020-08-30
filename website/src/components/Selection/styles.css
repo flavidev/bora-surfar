@@ -1,9 +1,7 @@
 .select-block {
   position: relative;
 }
-.select-block + .select-block {
-  margin-top: 1.5rem;
-}
+
 .select-block label {
   font-size: 1.5rem;
   color: var(--color-primary-dark);

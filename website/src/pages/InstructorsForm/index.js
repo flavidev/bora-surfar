@@ -21,8 +21,13 @@ function InstructorForm() {
 
   function addNewSchedule() {
     if (weekDay && weekDayShift) {
+      const updatedSchedule = availableSchedule.filter(
+        (scheduleItem) =>
+          scheduleItem.day !== weekDay || scheduleItem.shift !== weekDayShift
+      )
+
       setAvailableSchedule([
-        ...availableSchedule,
+        ...updatedSchedule,
         { day: weekDay, shift: weekDayShift },
       ]);
       resetSchedule();
@@ -34,8 +39,8 @@ function InstructorForm() {
   }
 
   function resetSchedule() {
+    document.getElementById("week_day").value = "";
     setWeekDay("");
-    setWeekDayShift("");
   }
 
   return (
@@ -64,9 +69,12 @@ function InstructorForm() {
 
           <Input
             name="whatsapp"
+            value={whatsApp}
             onChange={(e) => setWhatsApp(e.target.value)}
             label="WhatsApp"
-            placeholder="Somente números. Ex:999999999"
+            placeholder="Incluindo código da cidade. Ex: 21999999999"
+            max-length="15"
+            type="number"
           />
 
           <TextArea
@@ -102,37 +110,39 @@ function InstructorForm() {
         <fieldset>
           <legend>Disponibilidade</legend>
 
-          <div className="schedule-item" key={availableSchedule}>
+          <div className="schedule-itens">
             <Selection
               name="week_day"
+              id="week_day"
               label="Dia da Semana"
               onChange={(e) => setWeekDay(e.target.value)}
               options={[
-                { value: "Segunda", label: "Segunda-feira" },
-                { value: "Terça", label: "Terça-feira" },
-                { value: "Quarta", label: "Quarta-feira" },
-                { value: "Quinta", label: "Quinta-feira" },
-                { value: "Sexta", label: "Sexta-feira" },
+                { value: "Segunda-feira", label: "Segunda-feira" },
+                { value: "Terça-feira", label: "Terça-feira" },
+                { value: "Quarta-feira", label: "Quarta-feira" },
+                { value: "Quinta-feira", label: "Quinta-feira" },
+                { value: "Sexta-feira", label: "Sexta-feira" },
                 { value: "Sábado", label: "Sábado" },
                 { value: "Domingo", label: "Domingo" },
               ]}
             />
+
             <Selection
               name="week_day_shift"
               label="Turno"
               onChange={(e) => setWeekDayShift(e.target.value)}
               options={[
-                { value: "Manhã", label: "Manhã" },
-                { value: "Tarde", label: "Tarde" },
+                { value: "manhã", label: "Manhã" },
+                { value: "tarde", label: "Tarde" },
               ]}
             />
           </div>
           <div className="schedule-buttons">
-            <button type="button" onClick={deleteLastSchedule}>
-              Apagar horário
-            </button>
             <button type="button" onClick={addNewSchedule}>
               Adicionar horário
+            </button>
+            <button type="button" onClick={deleteLastSchedule}>
+              Apagar horário
             </button>
           </div>
         </fieldset>
