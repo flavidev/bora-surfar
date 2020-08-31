@@ -8,6 +8,8 @@ import LessonTime from "../../components/LessonTime";
 
 import "./styles.css";
 
+import { compare, convertWeekValuesToNames } from "../../utils/HelperFunctions";
+
 function InstructorForm() {
   const [username, setUsername] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
@@ -24,12 +26,13 @@ function InstructorForm() {
       const updatedSchedule = availableSchedule.filter(
         (scheduleItem) =>
           scheduleItem.day !== weekDay || scheduleItem.shift !== weekDayShift
-      )
+      );
 
-      setAvailableSchedule([
-        ...updatedSchedule,
-        { day: weekDay, shift: weekDayShift },
-      ]);
+      setAvailableSchedule(
+        [...updatedSchedule, { day: weekDay, shift: weekDayShift }].sort(
+          compare
+        )
+      );
       resetSchedule();
     }
   }
@@ -42,8 +45,6 @@ function InstructorForm() {
     document.getElementById("week_day").value = "";
     setWeekDay("");
   }
-
-  
 
   return (
     <div className="container" id="page-instructor-form">
@@ -66,7 +67,7 @@ function InstructorForm() {
             name="profile_picture"
             onChange={(e) => setProfilePicture(e.target.value)}
             label="Foto de Perfil"
-            placeholder="Link para uma foto onde apareça o seu rosto"
+            placeholder="Link para uma foto que apareça o seu rosto"
           />
 
           <Input
@@ -74,8 +75,7 @@ function InstructorForm() {
             value={whatsApp}
             onChange={(e) => setWhatsApp(e.target.value)}
             label="WhatsApp"
-            placeholder="Incluindo código da cidade. Ex: 21999999999"
-            max-length="15"
+            placeholder="Código da cidade + número. Ex: 21999999999"
             type="number"
           />
 
@@ -119,13 +119,13 @@ function InstructorForm() {
               label="Dia da Semana"
               onChange={(e) => setWeekDay(e.target.value)}
               options={[
-                { value: 0, label: "Segunda-feira" },
-                { value: 1, label: "Terça-feira" },
-                { value: 2, label: "Quarta-feira" },
-                { value: 3, label: "Quinta-feira" },
-                { value: 4, label: "Sexta-feira" },
-                { value: 5, label: "Sábado" },
-                { value: 6, label: "Domingo" },
+                { value: 0, label: "Domingo" },
+                { value: 1, label: "Segunda-feira" },
+                { value: 2, label: "Terça-feira" },
+                { value: 3, label: "Quarta-feira" },
+                { value: 4, label: "Quinta-feira" },
+                { value: 5, label: "Sexta-feira" },
+                { value: 6, label: "Sábado" },
               ]}
             />
 
@@ -134,8 +134,8 @@ function InstructorForm() {
               label="Turno"
               onChange={(e) => setWeekDayShift(e.target.value)}
               options={[
-                { value: "manhã", label: "Manhã" },
-                { value: "tarde", label: "Tarde" },
+                { value: "m", label: "Manhã" },
+                { value: "t", label: "Tarde" },
               ]}
             />
           </div>
@@ -151,7 +151,11 @@ function InstructorForm() {
 
         <fieldset>
           {availableSchedule.map((item, i) => (
-            <LessonTime key={i} day={item.day} shift={item.shift} />
+            <LessonTime
+              key={i}
+              day={convertWeekValuesToNames(item.day)}
+              shift={convertWeekValuesToNames(item.shift)}
+            />
           ))}
         </fieldset>
 
@@ -169,7 +173,7 @@ function InstructorForm() {
                 weekday = ${weekDay}\n
                 week day shift = ${weekDayShift}\n
                 price = ${price}\n
-                availableSchedule = ${availableSchedule.length}\n`
+                availableSchedule = ${availableSchedule}\n`
               );
             }}
           >

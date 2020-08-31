@@ -8,7 +8,10 @@ import InstructorItem from "../../components/InstructorItem";
 function InstructorsList() {
   return (
     <div id="page-instructors-list" className="container">
-      <Header text="As feras que ensinam">
+      <Header
+        title="Boa! Você vai se orgulhar disso no futuro."
+        description="Escolha uma fera dessas."
+      >
         <form id="search-instructors">
           <div className="input-block">
             <label htmlFor="beach">Praia</label>
