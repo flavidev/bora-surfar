@@ -29,10 +29,10 @@ function Landing() {
             Ensinar
           </Link>
         </div>
-        <span className="total-connections">
-          Já conectamos 420 surfistas
+        <div className="surf-quote">
+          <span>Todos que sabem surfar começaram boiando</span>
           <img src={hangLoose} alt="hang loose sign" />
-        </span>
+        </div>
       </div>
     </div>
   );
