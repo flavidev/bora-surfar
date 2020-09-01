@@ -9,7 +9,7 @@ const InstructorItem = ({ instructor }) => {
     <article className="instructor-item">
       <header>
         <img
-          src="https://lh3.googleusercontent.com/pw/ACtC-3ePRr_Mw51avuCqv_o6MohLGv5CVoeD9WSQA57mop-g96-Q0KmzIrolO0XGP3fNPvlR_s_CzaojBxEDg_LbX-yIuHw5u96byFe3_o-9Sn2p5TrwPoCgfl-61WlcaxKAanL5HhbWsYSJVnd2WHWvUDPkDw=s477-no?authuser=0"
+          src={instructor.profile_picture}
           alt={`${instructor.username}_picture`}
         />
         <div>

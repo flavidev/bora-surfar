@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-
-import "./styles.css";
-
+import api from "../../api";
 import Header from "../../components/Header";
 import InstructorItem from "../../components/InstructorItem";
-
-import api from "../../api";
+import "./styles.css";
 
 function InstructorsList() {
   const [instructors, setInstructors] = useState([]);
@@ -13,10 +10,8 @@ function InstructorsList() {
   useEffect(() => {
     async function loadInstructors() {
       const res = await api.get("/instructors");
-
       setInstructors(res.data);
     }
-
     loadInstructors();
   }, []);
 
@@ -43,7 +38,7 @@ function InstructorsList() {
       </Header>
       <main>
         <ul>
-        {instructors.map(instructor => (
+          {instructors.map((instructor) => (
             <InstructorItem key={instructor._id} instructor={instructor} />
           ))}
         </ul>

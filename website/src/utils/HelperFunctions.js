@@ -31,10 +31,10 @@ export function convertWeekValuesToNames(value) {
       day = "Sábado";
       break;
     case "m":
-      day = "Manhã";
+      day = "manhã";
       break;
     case "t":
-      day = "Tarde";
+      day = "tarde";
       break;
     default:
       day = "";

@@ -16,6 +16,8 @@
   width: 12rem;
   height: 12rem;
   border-radius: 0.75rem;
+  margin-left:1rem;
+  margin-right:0.5rem;
 }
 
 .instructor-item header div {

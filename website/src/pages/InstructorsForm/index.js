@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
 
+import api from "../../api";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
 import Selection from "../../components/Selection/";
 import TextArea from "../../components/TextArea/";
 import LessonTime from "../../components/LessonTime";
-
-import "./styles.css";
-
 import { compare, convertWeekValuesToNames } from "../../utils/HelperFunctions";
+import "./styles.css";
 
 function InstructorForm() {
   const [username, setUsername] = useState("");
@@ -19,7 +19,30 @@ function InstructorForm() {
   const [weekDay, setWeekDay] = useState("");
   const [weekDayShift, setWeekDayShift] = useState("");
   const [price, setPrice] = useState("");
-  let [availableSchedule, setAvailableSchedule] = useState([]);
+  const [availableSchedule, setAvailableSchedule] = useState([]);
+  const history = useHistory();
+
+  async function addNewInstructor(data) {
+    if (
+      (username,
+      profilePicture,
+      whatsApp,
+      bio,
+      region,
+      price,
+      availableSchedule)
+    ) {
+      try {
+        await api.post("/instructors", data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        history.push("/")
+      }
+    } else {
+      alert("Por favor, preencha todos os campos.");
+    }
+  }
 
   function addNewSchedule() {
     if (weekDay && weekDayShift) {
@@ -76,7 +99,7 @@ function InstructorForm() {
             onChange={(e) => setWhatsApp(e.target.value)}
             label="WhatsApp"
             placeholder="Código da cidade + número. Ex: 21999999999"
-            type="number"
+            maxLength="11"
           />
 
           <TextArea
@@ -93,10 +116,10 @@ function InstructorForm() {
             label="Praias"
             onChange={(e) => setRegion(e.target.value)}
             options={[
-              { value: "zonasul", label: "Zona Sul" },
-              { value: "zonaoeste", label: "Zona Oeste" },
-              { value: "niteroi", label: "Niterói" },
-              { value: "regiaodoslagos", label: "Região dos Lagos" },
+              { value: "Zona Sul", label: "Zona Sul" },
+              { value: "Barra e Zona Oeste", label: "Barra e Zona Oeste" },
+              { value: "Niterói", label: "Niterói" },
+              { value: "Região dos Lagos", label: "Região dos Lagos" },
             ]}
           />
 
@@ -164,17 +187,20 @@ function InstructorForm() {
           <button
             type="button"
             onClick={() => {
-              alert(
-                `username = ${username}\n
-                profilePicture = ${profilePicture}\n
-                whatsApp = ${whatsApp}\n
-                bio = ${bio}\n
-                region = ${region}\n
-                weekday = ${weekDay}\n
-                week day shift = ${weekDayShift}\n
-                price = ${price}\n
-                availableSchedule = ${availableSchedule}\n`
-              );
+              addNewInstructor({
+                username: username,
+                profile_picture: profilePicture,
+                whatsapp: whatsApp,
+                bio: bio,
+                region: region,
+                price: price,
+                days: availableSchedule.map(
+                  (element) =>
+                    `${convertWeekValuesToNames(
+                      element.day
+                    )} de ${convertWeekValuesToNames(element.shift)}`
+                ),
+              });
             }}
           >
             Cadastrar

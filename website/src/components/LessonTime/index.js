@@ -4,7 +4,7 @@ import "./styles.css";
 
 const LessonTime = (props) => {
   return (
-    <div key={Math.random().toString(36).substring(2)} className="lesson-block">
+    <div key={props.day+props.shift} className="lesson-block">
       <div className="lesson-item">
         <span>{props.day}</span>
         <span>{props.shift}</span>

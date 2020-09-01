@@ -10,15 +10,15 @@ import learnIcon from "../../assets/images/icons/learn-surf.png";
 import teachIcon from "../../assets/images/icons/teach-surf.png";
 import hangLoose from "../../assets/images/icons/hangloose.png";
 
-function Landing() {
+function Home() {
   return (
     <div id="page-landing">
-      <div id="page-landing-content" className="container">
+      <div id="page-lading-content" className="container">
         <div className="logo-container">
           <img src={logoImage} alt="logo" />
           <h2>Ensine ou aprenda a pegar onda</h2>
         </div>
-        <img src={mainImage} alt="bora surfar landing" className="hero-image" />
+        <img src={mainImage} alt="bora surfar Home" className="hero-image" />
         <div className="buttons-container">
           <Link to="/learn-surf" className="learn">
             <img src={learnIcon} alt="learn surf" />
@@ -34,8 +34,9 @@ function Landing() {
           <img src={hangLoose} alt="hang loose sign" />
         </div>
       </div>
+      
     </div>
   );
 }
 
-export default Landing;
+export default Home;
