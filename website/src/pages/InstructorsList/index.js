@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./styles.css";
 
 import Header from "../../components/Header";
 import InstructorItem from "../../components/InstructorItem";
 
+import api from "../../api";
+
 function InstructorsList() {
+  const [instructors, setInstructors] = useState([]);
+
+  useEffect(() => {
+    async function loadInstructors() {
+      const res = await api.get("/instructors");
+
+      setInstructors(res.data);
+    }
+
+    loadInstructors();
+  }, []);
+
   return (
     <div id="page-instructors-list" className="container">
       <Header
@@ -28,9 +42,11 @@ function InstructorsList() {
         </form>
       </Header>
       <main>
-        <InstructorItem />
-        <InstructorItem />
-        <InstructorItem />
+        <ul>
+        {instructors.map(instructor => (
+            <InstructorItem key={instructor._id} instructor={instructor} />
+          ))}
+        </ul>
       </main>
     </div>
   );

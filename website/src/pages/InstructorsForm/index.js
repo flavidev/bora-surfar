@@ -15,7 +15,7 @@ function InstructorForm() {
   const [profilePicture, setProfilePicture] = useState("");
   const [whatsApp, setWhatsApp] = useState("");
   const [bio, setBio] = useState("");
-  const [beaches, setBeaches] = useState("");
+  const [region, setRegion] = useState("");
   const [weekDay, setWeekDay] = useState("");
   const [weekDayShift, setWeekDayShift] = useState("");
   const [price, setPrice] = useState("");
@@ -89,9 +89,9 @@ function InstructorForm() {
         <fieldset>
           <legend>Quais são as tuas praias?</legend>
           <Selection
-            name="beaches"
+            name="region"
             label="Praias"
-            onChange={(e) => setBeaches(e.target.value)}
+            onChange={(e) => setRegion(e.target.value)}
             options={[
               { value: "zonasul", label: "Zona Sul" },
               { value: "zonaoeste", label: "Zona Oeste" },
@@ -169,7 +169,7 @@ function InstructorForm() {
                 profilePicture = ${profilePicture}\n
                 whatsApp = ${whatsApp}\n
                 bio = ${bio}\n
-                beaches = ${beaches}\n
+                region = ${region}\n
                 weekday = ${weekDay}\n
                 week day shift = ${weekDayShift}\n
                 price = ${price}\n

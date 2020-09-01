@@ -5,7 +5,7 @@ const InstructorSchema = new mongoose.Schema({
     profile_picture: String,
     whatsapp: String,
     bio: String,
-    beaches: String,
+    region: String,
     price: Number,
     days: [String],
 

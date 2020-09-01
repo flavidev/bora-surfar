@@ -8,7 +8,7 @@ module.exports = {
       profile_picture,
       whatsapp,
       bio,
-      beaches,
+      region,
       price,
       days,
     } = req.body;
@@ -23,7 +23,7 @@ module.exports = {
         profile_picture,
         whatsapp,
         bio,
-        beaches,
+        region,
         price,
         days,   
       });

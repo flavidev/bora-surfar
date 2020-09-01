@@ -1,33 +1,47 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import whatsAppIcon from "../../assets/images/icons/whatsapp.svg";
 
 import "./styles.css";
 
-const InstructorItem = (props) => {
+const InstructorItem = ({ instructor }) => {
   return (
     <article className="instructor-item">
       <header>
-        <img src={props.profile_picture} alt={`${props.username}_picture`} />
+        <img
+          src="https://lh3.googleusercontent.com/pw/ACtC-3ePRr_Mw51avuCqv_o6MohLGv5CVoeD9WSQA57mop-g96-Q0KmzIrolO0XGP3fNPvlR_s_CzaojBxEDg_LbX-yIuHw5u96byFe3_o-9Sn2p5TrwPoCgfl-61WlcaxKAanL5HhbWsYSJVnd2WHWvUDPkDw=s477-no?authuser=0"
+          alt={`${instructor.username}_picture`}
+        />
         <div>
-          <strong>{props.username}</strong>
+          <strong>{instructor.username}</strong>
 
-          <span>{props.region}</span>
+          <span>{instructor.region}</span>
         </div>
       </header>
-      <p>{props.bio}</p>
+      <p>{instructor.bio}</p>
+
+      <div className="available-days">
+        <p>Disponibilildade:</p>
+
+        {instructor.days.map((element) => (
+          <div>
+            <p> - {element}</p>
+          </div>
+        ))}
+      </div>
+
       <footer>
         <p>
           Preço/hora
-          <strong>{`R$${props.price}`}</strong>
+          <strong>{`R$${instructor.price}`}</strong>
         </p>
-        <button type="button">
-          <Link to="/">
+
+        <a href={`https://wa.me/55${instructor.whatsapp}`}>
+          <button type="button">
             <img src={whatsAppIcon} alt="WhatsApp" />
-          </Link>
-          WhatsApp
-        </button>
+            WhatsApp
+          </button>
+        </a>
       </footer>
     </article>
   );
