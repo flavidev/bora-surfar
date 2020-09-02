@@ -4,7 +4,7 @@
 
 #
 # <img src="./website/src/assets/images/logo.svg" width='300'>
-# 🌊 http://wwww.borasurfar.com.br 
+# 🌊 http://wwww.borasurfar.com.br (available soon) 
 ### 🏄🏻‍♀️ Created to help the whole surf community from Rio de Janeiro.
 ### 🏄🏽 Surf instructors may expose their availability, prices and phone numbers in order to schedule classes.
 ### 🏄‍♂️ Beginners are able to select their instructor by area, day, time and budget.
