@@ -12,6 +12,7 @@
 
 .logo-container img {
   height: 6rem;
+  width: 95%;
 }
 
 .hero-image {
@@ -25,7 +26,7 @@
 
 .logo-container h2 {
   font-weight: 500;
-  font-size: 2.75rem;
+  font-size: 1.75rem;
   line-height: 4.75rem;
   margin-top: 0.75rem;
 }
