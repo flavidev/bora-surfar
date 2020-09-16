@@ -10,18 +10,13 @@
   background: var(--color-primary);
 }
 
-.logo-container img {
-  height: 6rem;
-  width: 95%;
-}
-
-.hero-image {
-  width: 100%;
-}
-
 .logo-container {
   text-align: center;
   margin-bottom: 3.25rem;
+}
+.logo-container img {
+  height: 6rem;
+  width: 95%;
 }
 
 .logo-container h2 {
@@ -29,6 +24,10 @@
   font-size: 1.75rem;
   line-height: 4.75rem;
   margin-top: 0.75rem;
+}
+
+.hero-image {
+  width: 100%;
 }
 
 .buttons-container {
@@ -135,18 +134,69 @@
 
   .surf-quote {
     display: flex;
-    
   }
 
   .surf-quote span {
     flex: 4;
-    font-size:1.75rem;
+    font-size: 1.75rem;
   }
 
   .surf-quote img {
     flex: 0.5;
-    height:30px;
+    height: 30px;
     width: 30px;
     margin: 0 1rem 1rem 1em;
+  }
+}
+
+@media (max-height: 500px) {
+
+  #root{
+    background: var(--color-primary)
+  }
+
+  #page-landing {
+    width: 50vw;
+    height: 100vh;
+  }
+
+  .logo-container {
+    margin: 0;
+  }
+
+  .logo-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .logo-container img {
+    height: 100%;
+    width: 70%;
+  }
+
+  .hero-image {
+    width: 50%;
+    margin: 0 25%;
+  }
+
+  .buttons-container a {
+    font-size: 1.2rem;
+    height: 50%;
+    width: 50%;
+  }
+
+  .buttons-container a img {
+    width: 2rem;
+  }
+
+  .surf-quote {
+    margin: 0;
+  }
+  .surf-quote span {
+    font-size: 1.4rem;
+  }
+
+  .surf-quote img {
+    height: 12px;
+    width: 12px;
   }
 }
