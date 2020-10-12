@@ -1,10 +1,10 @@
 ![](website/src/assets/images/logo.svg)
 
-### This web application is my final project of Harvard CS50 2020, which followed the *web* *development* track of the course and the implementation is based on MERN stack (MongoDB, Express JS, React JS and Node JS). 
+### This web application is my final project of Harvard CS50 2020, it followed the *web* *development* track implementating MERN stack (MongoDB, Express, React and Node JS). 
 
 
 
-#### [Click to watch the required video presentation](https://www.youtube.com/watch?v=LTTD1ORSJYM)
+#### [Watch the required video presentation](https://www.youtube.com/watch?v=LTTD1ORSJYM)
 
 
 - 🏄🏻‍♀️ Planned to help the whole surf community from Rio de Janeiro.
