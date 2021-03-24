@@ -4,7 +4,7 @@
 
 
 
-#### [Watch the required video presentation](https://www.youtube.com/watch?v=LTTD1ORSJYM)
+## [Watch the full video presentation](https://www.youtube.com/watch?v=LTTD1ORSJYM)
 
 
 - 🏄🏻‍♀️ Planned to help the whole surf community from Rio de Janeiro.
